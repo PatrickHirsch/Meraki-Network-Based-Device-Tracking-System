@@ -4,3 +4,7 @@ aws_secret_access_key   = ""
 region_name             = ""
 						  
 signature_version       = ""
+
+
+bucketName				= ""
+bucketObjectKey			= ""

@@ -50,8 +50,8 @@ def bucketPUT(room):
     print("PUT REQUEST: Attempting to put "+room+" in the bucket.")
     try:
         response=s3.put_object(
-            Bucket="hirschp2-tracker-prototype",
-            Key="room",
+            Bucket=myS3AuthConfig.bucketName,
+            Key=myS3AuthConfig.bucketObjectKey,
             Body=room,
             ContentType="text/plain"
         )
