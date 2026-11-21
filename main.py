@@ -57,21 +57,22 @@ def bucketPUT(room):
         )
     except:
         print("PUT REQUEST ERROR: Put request unsuccessful.")
-        room="Unknown"
+        return cachedRoom
     else:
         print("PUT REQUEST: Successfully put "+room+" in the bucket.")
+        return room
 
 
 def main():
     print("Starting tracker...")
+    global cachedRoom
     cachedRoom="Unknown"
     while True:
         currentRoom=locateRoom()
         
         if cachedRoom!=currentRoom:
             print("Room change detected ("+cachedRoom+"!="+currentRoom+")")
-            cachedRoom=currentRoom
-            bucketPUT(cachedRoom)
+            cachedRoom=bucketPUT(currentRoom)
         else:
             print("No room change detected ("+cachedRoom+"=="+currentRoom+")")
     
